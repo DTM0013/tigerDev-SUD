@@ -4,24 +4,26 @@
 *
 * Author: David Moore
 * Date created: 2-17-2016
-* Last modified: 2-17-2016
+* Last modified: 2-19-2016
 *
 */
 
 //Header guard start
-#ifndef ADD_H
-#define ADD_H
+#ifndef Room_H
+#define Room_H
 
 //Include statements
 #include "Entity.h"
 #include <vector>
-// #include <typeinfo> (may need to include this)
+#include <typeinfo>
+#include <string>
 
-class Room {
+class Room : public Entity {
 
 //Variables
 private:
-	vector<Entity*> contents;
+	std::vector<Entity*> contents;
+	bool hasMonster;
 //Functions
 protected:
 	/*
@@ -31,23 +33,36 @@ protected:
 	bool containsMonster();
 	
 	/*
+	*
+	*
+	*/
+	void setContainsMonster(bool hasMonster);
+	
+	/*
 	* Scans the contents vector to see if there is an entity
-	*	with itemName as its name
+	* 	in the room
 	* returns true if it is in the room
 	*/
-	bool containsEntity(string entityName);
+	bool containsEntity();
+
+	/*
+	* Scans the contents vector to see if there is an entity
+	*	called itemName in the room
+	* returns true if it is in the room
+	*/
+	bool containsEntityName(std::string entityName);
 
 	/*
 	* Removes itemName from the contents vector
 	* returns true if the object was removed
 	*/
-	bool removeEntity(string entityName);
+	bool removeEntity(std::string entityName);
 
 	/*
 	* Adds entityObject to the contents vector
 	* returns true if the object was added
 	*/
-	bool addEntity(Entity entityObject);
+	void addEntity(Entity* entityPointer);
 
 //Constructor
 public:
@@ -64,7 +79,7 @@ public:
 	*	that way nobody takes the time attack the room and  see what happens 
 	*	when a room's health goes to zero. (right now nothing)
 	*/
-	Room(string name, string description, vector<Entity*> contents);
+	Room(std::string name, std::string description, std::vector<Entity*> contents);
 
 };
 
