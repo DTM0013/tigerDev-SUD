@@ -4,3 +4,8 @@ EndRoomX: 1
 EndRoomY: 2
 NumberOfRooms: 5
 
+RoomPos: <1><1>
+RoomName: <Start Room>
+RoomDescription: <This is the start room.>
+
+
