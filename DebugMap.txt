@@ -1,0 +1,6 @@
+StartRoomX: 1
+StartRoomY: 1
+EndRoomX: 1
+EndRoomY: 2
+NumberOfRooms: 5
+
