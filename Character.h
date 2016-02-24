@@ -9,8 +9,8 @@
 */
 
 //Header guard start
-#ifndef ADD_H
-#define ADD_H
+#ifndef Character_H
+#define Character_H
 
 //Include statement
 #include "Entity.h"
@@ -32,8 +32,20 @@ private:
 	* 4 = perception range weapons & crit chance
 	* 5 = intelligence level up speed or loot amount??? (no direct effect on stats
 	*/
-	int attributes[5];	
-	int currentAttributes[5];	
+	int attributes[6];	
+	int currentAttributes[6];	
+
+	/**
+ 	* Attributes that will be manipulated in methods then assigned
+ 	* to their respective indexes in currentAttriubutes array.
+ 	*/
+ 	
+ 	int strengthAttr;
+ 	int dexterityAttr;
+ 	int constitutionAttr;
+ 	int agilAttr;
+ 	int perceptionAttr;
+ 	int intellAttr;
 
 	/*
 	* Stats akin to stats from Fallout
@@ -49,8 +61,19 @@ private:
 	* 4 = maxWeight
 	* 5 = maxStamina
 	*/
-	int stats[5];
-	int currentStats[5];
+	int stats[6];
+	int currentStats[6];
+	
+	/*
+	* Stats that will be manipulated in methods then assigned
+	* to their respective indexes in currentStats array.
+	*/
+	int meleeStat;
+	int rangedStat;
+	int throwStat;
+	int medStat;
+	int maxWeightStat;
+	int maxStaminaStat;
 
 	/*
 	* Equiped items
@@ -83,12 +106,24 @@ protected:
 	*/
 	int getCurrentAttribute(int attributeNumber);
 	
+	/**
+	 * Get method for entire currentAttribute array
+	 * returns currentAttribute array
+	 */
+	 int getCurrentAttributeArray(int attrArray[6]);
+	
 	/*
 	* Get method for current stat values
 	* value of statNumber specifies what stat info to return
 	* returns the current value of the attribute
 	*/
-	int getCurrentStat(int statNumber);	
+	int getCurrentStat(int statNumber);
+	
+	/**
+	 * Get method for entire currentStat array
+	 * Returns currentStat array
+	 */
+	 int getCurrentStatArray(int statArray[6]);
 
 	/*
 	* Sets a new value for a current attribute
@@ -97,12 +132,37 @@ protected:
 	*/
 	int setCurrentAttribute(int attributeNumber, int amount);
 	
+	/**
+	 * Method sets new currentAttribute aray
+	 *returns new currentAttribute array
+	 */
+	 int setCurrentAttributeArray(int attrArray[6]);
+	
 	/*
 	* Sets a new value for a current stat
 	* The stat will change to the value specified by amount
 	* returns the new value of the stat
 	*/
 	int setCurrentStat(int statNumber, int amount);
+	
+	/**
+	 * Method sets new currentStat array
+	 * returns new currentStat array
+	 */
+	int setCurrentStatArray(int statArray[6]);
+	
+	/**
+	 * Method used to distribute attribute points at the beginning
+	 * of character creation or when character levels up
+	 */
+	 int distributeAttributePoints(int attrArray[6]);
+	 
+	 /**
+	  * Method used to distribute stat points at the
+	  * begininng of character creation or when character levels
+	  * up.
+	  */
+	  int distributeStatPoints(int skillArray[6]);
 	
 	/*
 	* Gets the currently equiped item
