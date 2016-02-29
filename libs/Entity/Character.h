@@ -14,6 +14,9 @@
 
 //Include statement
 #include "Entity.h"
+#include "Object.h"
+#include "Equipment.h"
+
 
 class Character {
 
@@ -81,7 +84,7 @@ private:
 	* 0 = boots | 1 = legs/waist | 2 = chest/arms | 3 = gloves | 
 	* 4 = held in left hand | 5 = held in right hand | 6 = head |
 	*/
-	object* equipedItems[7];
+	Object* equipedItems[7];
 	
 //Functions
 protected:
@@ -90,7 +93,7 @@ protected:
 	* value of attributeNumber specifies what attribute info to return
 	* returns the attribute's value
 	*/
-	int getAtribute(int attributeNumber);
+	int getAttribute(int attributeNumber);
 	
 	/*
 	* Get method for stats
@@ -110,7 +113,7 @@ protected:
 	 * Get method for entire currentAttribute array
 	 * returns currentAttribute array
 	 */
-	 int getCurrentAttributeArray(int attrArray[6]);
+	 int * getCurrentAttributeArray();
 	
 	/*
 	* Get method for current stat values
@@ -123,7 +126,7 @@ protected:
 	 * Get method for entire currentStat array
 	 * Returns currentStat array
 	 */
-	 int getCurrentStatArray(int statArray[6]);
+	 int * getCurrentStatArray();
 
 	/*
 	* Sets a new value for a current attribute
@@ -136,7 +139,7 @@ protected:
 	 * Method sets new currentAttribute aray
 	 *returns new currentAttribute array
 	 */
-	 int setCurrentAttributeArray(int attrArray[6]);
+	 void setCurrentAttributeArray(int attrArray[]);
 	
 	/*
 	* Sets a new value for a current stat
@@ -147,29 +150,28 @@ protected:
 	
 	/**
 	 * Method sets new currentStat array
-	 * returns new currentStat array
 	 */
-	int setCurrentStatArray(int statArray[6]);
+	void setCurrentStatsArray(int statsArray[]);
 	
 	/**
 	 * Method used to distribute attribute points at the beginning
 	 * of character creation or when character levels up
 	 */
-	 int distributeAttributePoints(int attrArray[6]);
+	 void distributeAttributePoints(int attrArray[]);
 	 
 	 /**
-	  * Method used to distribute stat points at the
-	  * begininng of character creation or when character levels
-	  * up.
-	  */
-	  int distributeStatPoints(int skillArray[6]);
+	 * Method used to distribute stat points at the
+	 * begininng of character creation or when character levels
+	 * up.
+	 */
+	 void distributeStatPoints(int statsArray[]);
 	
 	/*
 	* Gets the currently equiped item
 	* returns the item in slotNumber
 	* returns null if no item is in slotNumber
 	*/
-	Item getItem(int slotNumber)
+	Object* getEquipedItem(int slotNumber);
 	
 	/*
 	* Equips the item specified by Item to equip
@@ -183,7 +185,7 @@ public:
 	* Default constructor
 	* Should have no Character objects
 	*/
-	Chracter();
+	Character();
 
 };
 //Header guard end

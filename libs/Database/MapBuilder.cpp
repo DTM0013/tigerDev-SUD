@@ -10,9 +10,9 @@
 */
 
 //Include statements
-#include "Database/MapBuilder.h"
-//#include "Entity/Room.h"
-//#include "Entity/Room.cpp"
+#include "MapBuilder.h"
+//#include "../Entity/Room.h"
+//#include "../Entity/Room.cpp"
 #include <string>
 #include <vector>
 #include <iostream>

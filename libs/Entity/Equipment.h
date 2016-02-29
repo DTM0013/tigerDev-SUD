@@ -40,7 +40,6 @@ private:
 
 //Funnctions
 protected:
-	int getSlot();
 	float getDamageModifier();
 	int getBaseStaminaUse();
 	float getCritModifier;

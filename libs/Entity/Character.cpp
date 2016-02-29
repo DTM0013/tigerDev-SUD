@@ -2,24 +2,17 @@
 * Class: Character Class
 * Description: Basic outline for Character
 *
-* Author: Jonathan Sims
+* Author: Jonathan Sims & David Moore
 * Date created: 2/23/2016
-* Last modified: 2/23/2016
+* Last modified: 2/28/2016
 *
 */
 
 // Include Statements
-#include "Entity/Entity.h"
-#include "Entity/Entity.cpp"
+#include "Entity.h"
+#include "Entity.cpp"
 #include "Character.h"
 #include <string>
-#include <array>
-
-// CONSTANTS
-const int DEFAULT_HEALTH = 1000;
-const int INITIAL_ATTRIBUTE_POINTS = 20;
-const int INITIAL_SKILL_POINTS = 20;
-
 
 /**
 * Default constructor
@@ -30,87 +23,125 @@ Character::Character() {
 
 };
 
-
-/**
-* Main constructor for Character.cpp
-* Set health, current attributes, current skills
+/*
+* Get method for base Attributes
+* Returns the Base attribute's value
 */
-Character::Character(std::int maxHealth, std::array<int, 6> attrArray,
-                     std::array<int, 6> skillArray) {
-   this->Entity::setMaxHealth(DEFAULT_HEALTH);
-   this->Entity::setCurrentHealth(DEFAULT_HEALTH);
-   this->Character::setCurrentAttributeArray(attrArray);
-   this->Character::setCurrentStatArray(skillArray);
+int Character::getAttribute(int attributeNumber) {
+	return attributes[attributeNumber];
 };
 
-
-/**
-* Distribute attribute points after character creation.
-* I plan to use a switch case for the currentAttr array, switching with int point.
-* For whichever point is selected, I plan to increment the respective attribute and
-* decrement INITIAL_ATTRIBUTE_POINTS.
+/*
+* Get method for base stats
+* Returns the base stat's value
 */
-int Character::distributeAttributePoints(std::array<int, 6> attributeArray) {
-   int point; // case to be switched
-   cout << "Choose Attributes:" << endl;
-   cout << "Strength: 0" << endl;
-   cout << "Dexterity: 1" << endl;
-   cout << "Constitution: 2" << endl;
-   cout << "Agility: 3" << endl;
-   cout << "Perception: 4" << endl;
-   cout << "Intelligence: 5" << endl;
-   cin >> point;
-   do
-   {
-      switch(point)
-      {
-         case 0:
-            {
-               cout << "Point added to Strength" << endl;
-               strengthAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }
-         case 1:
-            {
-               cout << "Point added to Dexterity" << endl;
-               dexterityAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }
-         case 2:
-            {
-               cout << "Point added to Constitution" << endl;
-               constitutionAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }
-         case 3:
-            {
-               cout << "Point added to Agility" << endl;
-               agilAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }
-         case 4:
-            {
-               cout << "Point added to Perception" << endl;
-               perceptionAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }   
-         case 5:
-            {
-               cout << "Point added to Intelligence" << endl;
-               intellAttr++;
-               INITIAL_ATTRIBUTE_POINTS--;
-               break;
-            }
-         default:
-            {
-               cout << "Invalid Input. Must enter a number 0-5" << endl;
-               break;
-            }   
-      }
-   }while(INITIAL_ATTRIBUTE_POINTS > 0);
+int Character::getStat(int statNumber) {
+	return stats[statNumber];
+};
+
+/*
+* Get method for current Attributes
+* Returns the current attribute's value
+*/
+int Character::getCurrentAttribute(int attributeNumber) {
+	return currentAttributes[attributeNumber];
+};
+
+/*
+* Get method for current stats
+* Returns the stat's current value
+*/
+int Character::getCurrentStat(int statNumber) {
+	return currentStats[statNumber];
+};
+
+/*
+* Get method for the array of attributes
+*/
+int * Character::getCurrentAttributeArray() {
+	return currentAttributes;
+};
+
+/*
+* Get method for the array of stats 
+*/
+int * Character::getCurrentStatArray() {
+	return currentStats;
+};
+
+/*
+* Sets a new value for the current attribute
+* returns the new value of the Attribute
+*/
+int Character::setCurrentAttribute(int attributeNumber, int amount) {
+	currentAttributes[attributeNumber] = amount;
+	return currentAttributes[attributeNumber];
+};
+
+/*
+* Sets a new value for the current stat
+* returns the new value of the stat
+*/
+int Character::setCurrentStat(int statNumber, int amount) {
+	currentStats[statNumber] = amount;
+	return currentStats[statNumber];
+};
+
+/*
+* Set current attribute array
+*/
+void Character::setCurrentAttributeArray(int attrArray[]) {
+	for (int i = 0; i < 6; i++) {
+		currentAttributes[i] = attrArray[i];
+	}
+};
+
+/*
+* Set current attribute array
+*/
+void Character::setCurrentStatsArray(int statsArray[]) {
+	for (int i = 0; i < 6; i++) {
+		currentStats[i] = statsArray[i];
+	}
+};
+
+/*
+* Used during character creation
+*/
+void Character::distributeAttributePoints(int attrArray[]) {
+	for (int i = 0; i < 6; i++) {
+		attributes[i] = attrArray[i];
+		currentAttributes[i] = attrArray[i];	
+	}
+};
+
+/*
+* Used during character creation
+*/
+void Character::distributeStatPoints(int statsArray[]) {
+	for (int i = 0; i < 6; i++) {
+		stats[i] = statsArray[i];
+		currentStats[i] = statsArray[i];	
+	}
+};
+
+/*
+* Gets the item currently equiped in slotNumber
+* returns the object pointer or null
+*
+Object* Character::getEquipedItem(int slotNumber) {
+	return equipedItems[slotNumber];
+};
+
+/*
+* Equips the item specified by itemToEquip
+* returns true if the item was equiped
+*/
+bool Character::equipItem(Object itemToEquip) {
+	int tempSlot = itemToEquip.getSlot();
+	if (equipedItems[tempSlot] == 0) {
+		*equipedItems[tempSlot] = itemToEquip;
+		return true;
+	}
+	return false;
 };

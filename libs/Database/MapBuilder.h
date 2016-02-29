@@ -13,7 +13,7 @@
 #define MapBuilder_H
 
 //Include statements
-#include "Entity/Room.cpp"
+#include "../Entity/Room.cpp"
 
 #include <string>
 #include <vector>
