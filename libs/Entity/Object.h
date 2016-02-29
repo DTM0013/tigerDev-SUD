@@ -4,13 +4,13 @@
 * 
 * Author: David Moore
 * Date created: 2-17-2016
-* Last modified: 2-17-2016
+* Last modified: 2-28-2016
 * 
 */
 
 //Header guard start:
-#ifndef ADD_H
-#define ADD_H
+#ifndef OBJECT_H
+#define OBJECT_H
 
 //Include statement
 #include "Entity.h"
@@ -23,12 +23,12 @@ private:
 	bool usable; //If the item can be used
 
 //Functions
-protected:
+public:
 	bool getPickUpable(); //returns true if the item can be picked up
 	bool getUsable(); //returns true if the item can be used
 	void setPickUpable(bool status);
 	void setUsable(bool status);
-
+	int getSlot(); //Returns the equipement slot this item uses; defaults to 5
 };
 
 //Header guard end

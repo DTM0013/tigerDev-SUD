@@ -13,6 +13,8 @@
 #define MapBuilder_H
 
 //Include statements
+#include "../Entity/Room.cpp"
+
 #include <string>
 #include <vector>
 #include <iostream>
@@ -26,23 +28,23 @@ private:
 	int startRoomYpos;
 	int endRoomXpos;
 	int endRoomYpos;
-	int numberOfRooms;
+	int numberOfRooms;	
 
-	std::vector< std::vector<*Room> > map;
+	std::vector< std::vector<Room*> > map;
 
 //Functions
 public:
 	std::string getMapName(); //Returns the name of the txt file
-	std::string getStartRoomXpos; //Returns the x pos of start room
-	std::string getStartRoomYpos; //Returns the y pos of start room
-	std::string getEndRoomXpos; //Returns the x pos of end room
-	std::string getEndRoomYpos; //Returns the y pos of end room
+	int getStartRoomXpos(); //Returns the x pos of start room
+	int getStartRoomYpos(); //Returns the y pos of start room
+	int getEndRoomXpos(); //Returns the x pos of end room
+	int getEndRoomYpos(); //Returns the y pos of end room
 
 	/*
 	* Returns the Room object in the Rooms
 	* 	vector at [x][y]
 	*/
-	Room getRoom(int x, int y);
+	Room* getRoom(int x, int y);
 	
 	/*
 	* Returns the 2D vector that stores all rooms
@@ -50,7 +52,7 @@ public:
 	*	corisponds to the position of the room
 	*	on the map. (top right corner [0][0)]
 	*/
-	std::vector< std::vector<*Room> > getMap();
+	std::vector< std::vector<Room*> > getMap();
 
 	/*
 	* Reads in data from mapName

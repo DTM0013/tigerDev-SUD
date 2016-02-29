@@ -11,6 +11,8 @@
 
 //Include statements
 #include "MapBuilder.h"
+//#include "../Entity/Room.h"
+//#include "../Entity/Room.cpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -39,28 +41,28 @@ std::string MapBuilder::getMapName() {
 /*
 * Returns the x pos of the start room
 */
-int MapBuildeR::getStartRoomXpos() {
+int MapBuilder::getStartRoomXpos() {
 	return startRoomXpos;
 };
 
 /*
 * Returns the y pos of the start room
 */
-int MapBuildeR::getStartRoomYpos() {
+int MapBuilder::getStartRoomYpos() {
 	return startRoomYpos;
 };
 
 /*
 * Returns the x pos of the end room
 */
-int MapBuildeR::getEndRoomXpos() {
+int MapBuilder::getEndRoomXpos() {
 	return startRoomXpos;
 };
 
 /*
 * Returns the y pos of the end room
 */
-int MapBuildeR::getStartRoomXpos() {
+int MapBuilder::getEndRoomYpos() {
 	return endRoomYpos;
 };
 

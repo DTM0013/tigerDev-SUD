@@ -15,7 +15,7 @@
 #define ADD_H
 
 //Include statements
-#include "Character.h"
+#include "Entity/Character.h"
 
 class Combat {
 

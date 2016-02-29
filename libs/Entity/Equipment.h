@@ -9,8 +9,8 @@
 */
 
 //Header guard start
-#ifndef ADD_H
-#define ADD_H
+#ifndef EQUIPMENT_H
+#define EQUIPMENT_H
 
 //Include statement
 #include "Object.h"
@@ -40,7 +40,6 @@ private:
 
 //Funnctions
 protected:
-	int getSlot();
 	float getDamageModifier();
 	int getBaseStaminaUse();
 	float getCritModifier;
