@@ -29,7 +29,7 @@ private:
 	int endRoomXpos;
 	int endRoomYpos;
 	int numberOfRooms;	
-
+	
 	std::vector< std::vector<Room*> > map;
 
 //Functions
