@@ -8,4 +8,18 @@ RoomPos: <1>{1}
 RoomName: <Start Room>
 RoomDescription: <This is the start room.>
 
+RoomPos: <1>{0}
+RoomName: <North Room>
+RoomDescription: <This is the North room.>
 
+RoomPos: <1>{2}
+RoomName: <South Room>
+RoomDescription: <This is the South room.>
+
+RoomPos: <2>{1}
+RoomName: <East Room>
+RoomDescription: <This is the East room.>
+
+RoomPos: <0>{1}
+RoomName: <West Room>
+RoomDescription: <This is the West room.>

@@ -34,6 +34,7 @@ MapBuilder::MapBuilder(std::string mapName) {
 	for (int i = 0; i < 100; i++) {
 		map[i].resize(100);
 	}
+	
 };
 
 /*
@@ -144,8 +145,8 @@ bool MapBuilder::buildMap() {
 			tempWord = tempLine.substr(tempLine.find("{")+1, tempLine.find("}")-tempLine.find("{")-1);
 			yPos = atoi(tempWord.c_str());	
 			
-			Room room = Room();
-			map[xPos][yPos] = &room;	
+			//Room room = new Room();
+			map[xPos][yPos] = new Room();	
 		}
 		
 		//Room Name
