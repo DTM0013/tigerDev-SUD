@@ -18,7 +18,7 @@
 #include <time.h>
 
 #include "Skill.h"
-#include "Entity/Character.h"
+#include "../Entity/Character.cpp"
 
 //Default constructor
 Skill::Skill() {

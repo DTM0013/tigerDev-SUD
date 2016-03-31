@@ -11,12 +11,12 @@
 */
 
 //Header guard start
-#ifndef ADD_H
-#define ADD_H
+#ifndef COMBAT_H
+#define COMBAT_H
 
 //Include statements
-#include "Entity/Character.h"
-#include "Entity/Player.cpp"
+#include "../Entity/Character.cpp"
+#include "../Entity/Player.cpp"
 
 class Combat {
 

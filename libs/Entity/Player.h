@@ -17,6 +17,10 @@
 
 class Player : public Character {
 
+//Constructor
+public:
+	Player();
+
 //Variables
 private:
 	int playerPosX;

@@ -12,11 +12,11 @@
 //Include statments
 //#include "../libs/Entity/Entity.cpp"
 #include "../libs/Entity/Character.cpp"
-//#include "../libs/Entity/Room.cpp"
+#include "../libs/Entity/Room.cpp"
 #include "../libs/Entity/Player.cpp"
 #include "../libs/Database/MapBuilder.cpp"
-#include "../libs/Combat/Combat.cpp"
-#include "../libs/Combat/Skill.cpp"
+//#include "../libs/Combat/Combat.cpp"
+//#include "../libs/Combat/Skill.cpp"
 
 #include <iostream>
 #include <string>
@@ -52,7 +52,7 @@ int main() {
 
 	//Constant variables
 	std::string MOVE_FAILURE = "I can't go that way.";
-
+	
 	//Game Loop
 	while (true) {
 		//Print description of current room 
@@ -150,9 +150,9 @@ int main() {
 				player.setPosX(player.getPosX() + 1);
 
 				//Check if there is a monster in the room, and see what to do
-				if (level.getRoom(player.getPosX(), player.getPosY()).containsMonster()) {
-					Combat fight = Combat(Player, target, player.getPosX() - 1, player.getPosY()); //Change target to thing in room
-					fight.handleCombat();
+				if (level.getRoom(player.getPosX(), player.getPosY()) -> containsMonster()) {
+					//Combat fight = Combat(Player, target, player.getPosX() - 1, player.getPosY()); //Change target to thing in room
+					//fight.handleCombat();
 				}
 
 				break;
