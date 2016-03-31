@@ -16,6 +16,7 @@
 #include "Entity.h"
 #include "Object.h"
 #include "Equipment.h"
+#include <vector>
 
 
 class Character : public Entity {
@@ -36,7 +37,13 @@ private:
 	* 5 = intelligence level up speed or loot amount??? (no direct effect on stats
 	*/
 	int attributes[6];	
-	int currentAttributes[6];	
+	int currentAttributes[6];
+	
+	/*
+	*vector for skills
+	*/
+	int skillNumber;
+	vector<int> skills; //empty vector of ints
 
 	/**
  	* Attributes that will be manipulated in methods then assigned
@@ -94,6 +101,20 @@ public:
 	* returns the attribute's value
 	*/
 	int getAttribute(int attributeNumber);
+	
+	/*
+	*Get method for Skills
+	*value of skillNumber specifies which skill to retern
+	*returns the skills value
+	*/
+	int getSkill(int skillNumber);
+	
+	/*
+	*set method for skills
+	*the skill will change to the value specified by amount
+	*returns the new value of the skill
+	*/
+	int setSkill(int skillNumber, int amount);
 	
 	/*
 	* Get method for stats
@@ -178,6 +199,12 @@ public:
 	* returns true if the item was equiped
 	*/
 	bool equipItem(Equipment itemToEquip);
+	
+	/*
+	*Vector that will store a skill at a certain indexes
+	*
+	*/
+	
 
 //Constructor
 public:
