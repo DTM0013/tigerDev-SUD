@@ -16,7 +16,7 @@
 
 //Include statements
 #include <string>
-#include "Entity/Character.h"
+#include "../Entity/Character.h"
 
 class Skill {
 

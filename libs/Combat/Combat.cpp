@@ -11,7 +11,7 @@
 
 // Include Statements
 #include "Combat.h"
-#include "Entity/Character.h"
+#include "../Entity/Character.h"
 
 #include <iostream>
 #include <string>
@@ -102,6 +102,7 @@ void Combat::handleCombat() {
 			}
 			//Handles using skills and unknown words 
 			else {
+				break;
 				//Loop through skill list and check if input matches a skill name
 					//if true use skill and break out of loop
 					//if false simply say "I don't understand" NO BREAK
