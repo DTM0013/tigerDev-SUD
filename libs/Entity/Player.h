@@ -15,7 +15,7 @@
 //Include statment
 #include "Character.h"
 
-class Player {
+class Player : public Character {
 
 //Variables
 private:

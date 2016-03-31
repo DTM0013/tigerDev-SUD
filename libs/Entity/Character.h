@@ -18,7 +18,7 @@
 #include "Equipment.h"
 
 
-class Character {
+class Character : public Entity {
 
 //Variables
 private:
@@ -87,7 +87,7 @@ private:
 	Object* equipedItems[7];
 	
 //Functions
-protected:
+public:
 	/*
 	* Get method for Atributes
 	* value of attributeNumber specifies what attribute info to return
@@ -171,13 +171,13 @@ protected:
 	* returns the item in slotNumber
 	* returns null if no item is in slotNumber
 	*/
-	Object* getEquipedItem(int slotNumber);
+	Equipment* getEquipedItem(int slotNumber);
 	
 	/*
 	* Equips the item specified by Item to equip
 	* returns true if the item was equiped
 	*/
-	bool equipItem(Object itemToEquip);
+	bool equipItem(Equipment itemToEquip);
 
 //Constructor
 public:

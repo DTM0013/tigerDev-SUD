@@ -137,7 +137,7 @@ Object* Character::getEquipedItem(int slotNumber) {
 * Equips the item specified by itemToEquip
 * returns true if the item was equiped
 */
-bool Character::equipItem(Object itemToEquip) {
+bool Character::equipItem(Equipment itemToEquip) {
 	int tempSlot = itemToEquip.getSlot();
 	if (equipedItems[tempSlot] == 0) {
 		*equipedItems[tempSlot] = itemToEquip;

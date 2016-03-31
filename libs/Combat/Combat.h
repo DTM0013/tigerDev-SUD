@@ -16,14 +16,19 @@
 
 //Include statements
 #include "Entity/Character.h"
+#include "Entity/Player.cpp"
 
 class Combat {
 
 //Variables
 private:
+	Player player;
+	Character target;
+	int previousPosX;
+	int previousPosY;
 	bool turn; //true if player's turn (may not need this)
 //Functions
-private:
+public:
 	/*
 	* Checks if the player wants to enter combat
 	* returns true if the player wants to enter combat
@@ -36,7 +41,7 @@ private:
 	*	character is dead or player retreats
 	*/
 	void handleCombat();
-]
+
 //Constructor
 public:
 	/*
@@ -46,12 +51,8 @@ public:
 
 	/*
 	* General use constructor
-	* character1 is usually player
-	*
-	*  Note: probably need better names than
-	*	 character1 & character2
 	*/
-	Combat(Character character1, Character character2);
+	Combat(Player player, Character target, int previousPosX, int previousPosY);
 
 };
 

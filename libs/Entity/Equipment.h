@@ -15,7 +15,7 @@
 //Include statement
 #include "Object.h"
 
-class Equipment {
+class Equipment : public Object {
 
 //Variables
 private: 
@@ -39,7 +39,7 @@ private:
 	float critModifier; 
 
 //Funnctions
-protected:
+public:
 	float getDamageModifier();
 	int getBaseStaminaUse();
 	float getCritModifier;

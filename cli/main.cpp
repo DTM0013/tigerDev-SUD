@@ -11,10 +11,12 @@
 
 //Include statments
 //#include "../libs/Entity/Entity.cpp"
-//#include "../libs/Entity/Character.cpp"
+#include "../libs/Entity/Character.cpp"
 //#include "../libs/Entity/Room.cpp"
 #include "../libs/Entity/Player.cpp"
 #include "../libs/Database/MapBuilder.cpp"
+#include "../libs/Combat/Combat.cpp"
+#include "../libs/Combat/Skill.cpp"
 
 #include <iostream>
 #include <string>
@@ -127,7 +129,7 @@ int main() {
 					break;
 				}
 				//Checks passed, so make move
-				std::cout << "You walk North" << std::endl;
+				std::cout << "You walk South" << std::endl;
 				player.setPosY(player.getPosY() + 1);
 				break;
 			//East
@@ -144,8 +146,15 @@ int main() {
 					break;
 				}
 				//Checks passed, so make move
-				std::cout << "You walk North" << std::endl;
+				std::cout << "You walk East" << std::endl;
 				player.setPosX(player.getPosX() + 1);
+
+				//Check if there is a monster in the room, and see what to do
+				if (level.getRoom(player.getPosX(), player.getPosY()).containsMonster()) {
+					Combat fight = Combat(Player, target, player.getPosX() - 1, player.getPosY()); //Change target to thing in room
+					fight.handleCombat();
+				}
+
 				break;
 			//West
 			case string2int("west") :
@@ -161,8 +170,13 @@ int main() {
 					break;
 				}
 				//Checks passed, so make move
-				std::cout << "You walk North" << std::endl;
+				std::cout << "You walk West" << std::endl;
 				player.setPosX(player.getPosX() - 1);
+				break;
+
+			//In case the input is not understood
+			default: 
+				std::cout << "I don't understand what I should be doing?" << std::endl;
 				break;
 		}
 	}

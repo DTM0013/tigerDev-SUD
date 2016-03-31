@@ -25,7 +25,7 @@ private:
 	std::vector<Entity*> contents;
 	bool hasMonster;
 //Functions
-protected:
+public:
 	/*
 	* Scans the contents vector to see if there is a monster
 	* returns true if a monster is in the room
