@@ -15,6 +15,25 @@
 #include <string>
 
 /*
+*Get method for skills
+*returns the skillNumber
+*/
+int Character::getSkill(int skillNumber) {
+	return skills[skillNumber];
+}
+
+/*
+*set method for skills
+*returns the skillNumber
+*sets the skillNumber to the new value
+*returns the new value
+*/
+int Character::setSkill(int skillNumber, amount) {
+	skills[skillNumber] = amount;
+	return amount;
+}
+
+/*
 * Get method for base Attributes
 * Returns the Base attribute's value
 */
