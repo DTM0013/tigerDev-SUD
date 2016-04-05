@@ -11,10 +11,6 @@
 //Include statment
 #include "Player.h"
 
-//Constructor
-Player::Player() {
-};
-
 //Getters for current player position
 int Player::getPosX() {
 	return playerPosX;

@@ -20,14 +20,6 @@
 #include "Skill.h"
 #include "../Entity/Character.cpp"
 
-//Default constructor
-Skill::Skill() {
-	name = "";
-	description = "";
-	staminaUse = 0;
-	damage = 0;
-};
-
 //General use Constructor
 Skill::Skill(std::string name, std::string description, int staminaUse, int damage) {
 	this -> name = name;

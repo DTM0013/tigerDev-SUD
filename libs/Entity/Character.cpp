@@ -14,15 +14,6 @@
 #include "Character.h"
 #include <string>
 
-/**
-* Default constructor
-* Should only be used for debugging
-*/
-
-Character::Character() {
-
-};
-
 /*
 * Get method for base Attributes
 * Returns the Base attribute's value

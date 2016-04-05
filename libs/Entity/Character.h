@@ -179,14 +179,6 @@ public:
 	*/
 	bool equipItem(Equipment itemToEquip);
 
-//Constructor
-public:
-	/*
-	* Default constructor
-	* Should have no Character objects
-	*/
-	Character();
-
 };
 //Header guard end
 #endif

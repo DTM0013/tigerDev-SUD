@@ -18,24 +18,24 @@
 #include <stdlib.h>
 
 // Default Constructor
-Combat::Combat(Player player, Character target, int previousPosX, int previousPosY) {
-	player = this -> player;
-	target = this -> target;
-	previousPosX = this -> previousPosX;
-	previousPosY = this -> previousPosY;
+Combat::Combat(Player* player, Character* target, int previousPosX, int previousPosY) {
+	this -> player = player;
+	this -> target = target;
+	this -> previousPosX = previousPosX;
+	this -> previousPosY = previousPosY;
 };
 
 /*
 * Method for processing combat 
 */
-void Combat::handleCombat() {
+bool Combat::handleCombat() {
 	
 	std::string input;
 	
 	//Initial check to see if player wants to enter combat
 	std::cout << "You notice that you have a chance to run away" << std::endl;
-	std::cout << "/tbefore the enemy notices you. Do you attack" << std::endl;
-	std::cout << "/tor do you retreat." << std::endl <<std::endl;
+	std::cout << "\tbefore the enemy notices you. Do you attack" << std::endl;
+	std::cout << "\tor do you retreat." << std::endl <<std::endl;
 	
 	while (true) {
 		//get user input for check
@@ -46,9 +46,9 @@ void Combat::handleCombat() {
 		
 		if (input.compare("retreat") == 0) {
 			std::cout << "You decide to run back the way you came" << std::endl;
-			player.setPosX(previousPosX);
-			player.setPosY(previousPosY);
-			return;
+			player -> setPosX(previousPosX);
+			player -> setPosY(previousPosY);
+			return false;
 		}
 		else if (input.compare("attack") == 0) {
 			std::cout << "You decide to attack." << std::endl;
@@ -83,9 +83,9 @@ void Combat::handleCombat() {
 			//Running away mid-combat
 			if (input.compare("retreat") == 0) {
 				std::cout << "You decide to run back the way you came" << std::endl;
-				player.setPosX(previousPosX);
-				player.setPosY(previousPosY);
-				return;
+				player -> setPosX(previousPosX);
+				player -> setPosY(previousPosY);
+				return false;
 			}
 			//User attempts to use movement words
 			else if (input.compare("north")==0) {
@@ -108,9 +108,9 @@ void Combat::handleCombat() {
 					//if false simply say "I don't understand" NO BREAK
 			}
 		}
-		if (target.getCurrentHealth() <= 0) {
+		if (target -> getCurrentHealth() <= 0) {
 			std::cout << "You have defeated the enemy." << std::endl;
-			break;
+			return true;
 		}
 	}
 };

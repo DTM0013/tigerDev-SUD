@@ -11,11 +11,11 @@
 
 //Include statments
 //#include "../libs/Entity/Entity.cpp"
-#include "../libs/Entity/Character.cpp"
-#include "../libs/Entity/Room.cpp"
+//#include "../libs/Entity/Character.cpp"
+//#include "../libs/Entity/Room.cpp"
 #include "../libs/Entity/Player.cpp"
 #include "../libs/Database/MapBuilder.cpp"
-//#include "../libs/Combat/Combat.cpp"
+#include "../libs/Combat/Combat.cpp"
 //#include "../libs/Combat/Skill.cpp"
 
 #include <iostream>
@@ -45,6 +45,14 @@ int main() {
 	Player player = Player();
 	player.setPosX(level.getStartRoomXpos());
 	player.setPosY(level.getStartRoomYpos());	
+	Player* playerPointer = &player;	
+
+	//Temp monster in east room
+	level.getRoom(2,1) -> setContainsMonster(true);	
+
+	//Temp player set values
+	player.setMaxHealth(500);
+	player.setCurrentHealth(500);
 
 	//Get input from user
 	std::string firstWord;
@@ -151,8 +159,12 @@ int main() {
 
 				//Check if there is a monster in the room, and see what to do
 				if (level.getRoom(player.getPosX(), player.getPosY()) -> containsMonster()) {
-					//Combat fight = Combat(Player, target, player.getPosX() - 1, player.getPosY()); //Change target to thing in room
-					//fight.handleCombat();
+					//Change target to thing in the room instead of making player kill themselves
+					Combat fight = Combat(playerPointer, playerPointer, player.getPosX() - 1, player.getPosY());
+					//If the player wins the fight then set the room to not contain a monster
+					if (fight.handleCombat()) {
+						level.getRoom(player.getPosX(), player.getPosY() - > setContainsMonster(false);	
+					}
 				}
 
 				break;

@@ -15,15 +15,15 @@
 #define COMBAT_H
 
 //Include statements
-#include "../Entity/Character.cpp"
-#include "../Entity/Player.cpp"
+#include "../Entity/Character.h"
+#include "../Entity/Player.h"
 
 class Combat {
 
 //Variables
 private:
-	Player player;
-	Character target;
+	Player* player;
+	Character* target;
 	int previousPosX;
 	int previousPosY;
 	bool turn; //true if player's turn (may not need this)
@@ -37,22 +37,18 @@ public:
 
 	/*
 	* Function call that does combat
+	* Returns true if the player wins: otherwise false
 	* Note: essentially a while loop until one
 	*	character is dead or player retreats
 	*/
-	void handleCombat();
+	bool handleCombat();
 
 //Constructor
 public:
 	/*
-	* Default Constructor
-	*/
-	Combat();
-
-	/*
 	* General use constructor
 	*/
-	Combat(Player player, Character target, int previousPosX, int previousPosY);
+	Combat(Player* player, Character* target, int previousPosX, int previousPosY);
 
 };
 

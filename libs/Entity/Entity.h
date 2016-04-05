@@ -57,15 +57,6 @@ public:
 	* No return value
 	*/
 	void setDescription(std::string description);
-
-//Constructor
-public:
-	/*
-	* Default Constructor
-	* Should have no Entity objects
-	*/
-	Entity();
-
 };
 
 //Header guard end

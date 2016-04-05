@@ -53,11 +53,6 @@ private:
 //Constructor
 public:
 	/*
-	* Defualt Constructor
-	*/
-	Skill();
-
-	/*
 	* General use constructor
 	*/
 	Skill(std::string name, std::string desciption, int staminaUse, int damage);

@@ -75,9 +75,3 @@ void Entity::setDescription(std::string description) {
 	this->description = description;
 };
 
-/*
-* Default constructor
-* Should only be called for debug
-*/
-Entity::Entity() {
-};
