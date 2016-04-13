@@ -15,7 +15,7 @@
 //Include statement
 #include "Entity.h"
 
-class Object {
+class Object : public Entity{
 
 //Variables
 private:

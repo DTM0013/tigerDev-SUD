@@ -9,29 +9,37 @@
 */
 
 // Include Statements
-#include "Entity.h"
-#include "Entity.cpp"
 #include "Character.h"
+#include "Object.h"
+#include <vector>
 #include <string>
 
-/*
-*Get method for skills
-*returns the skillNumber
-*/
-int Character::getSkill(int skillNumber) {
-	return skills[skillNumber];
-}
 
 /*
-*set method for skills
-*returns the skillNumber
-*sets the skillNumber to the new value
-*returns the new value
-*/
-int Character::setSkill(int skillNumber, amount) {
-	skills[skillNumber] = amount;
-	return amount;
-}
+ * This method checks if the characte has a skill with the name
+ * returns true if the character has the skill
+ * returns false if the character does not have the skill
+ */
+bool Character::checkHasSkill(std::string skillName) {
+	if (skills.empty()) {
+		return false;
+	}
+	for (int i = 0; i < skills.size(); i++) {
+		if (skills[i].compare(skillName)==0) {
+			return true;
+		}
+	}
+	return false;
+};
+
+/* 
+ * set method for skills vector
+ * skillInput will be appended to the vector
+ * returns true if the skill was added
+ */
+void Character::addSkill(std::string skillInput) {
+	skills.push_back(skillInput);
+};
 
 /*
 * Get method for base Attributes

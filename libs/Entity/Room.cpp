@@ -9,10 +9,7 @@
 */
 
 //Include statements
-#include "Entity.h"
-#include "Entity.cpp"
 #include "Room.h"
-#include <vector>
 
 //Constants
 const int DEFAULT_HEALTH = 1000;

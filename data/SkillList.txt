@@ -1,0 +1,9 @@
+Name: <swipe>
+Description: <A swift, but weak attack. Consumes 60 stamina and does 50 damage.>
+Stamina: <60>
+Damage: <50>
+
+Name: <crush>
+Description: <A draining, but powerfull attack. Consumes 100 stamina and does 80 damage>
+Stamina: <100>
+Damage: <80>

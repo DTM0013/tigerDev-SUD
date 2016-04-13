@@ -15,8 +15,9 @@
 #define ADD_SKILL
 
 //Include statements
-#include <string>
+#include "../Entity/Equipment.h"
 #include "../Entity/Character.h"
+#include <string>
 
 class Skill {
 
@@ -28,7 +29,7 @@ private:
 	int damage;
 
 //Functions
-private:
+public:
 	/*
 	* Checks if a skill can be used by User
 	* if it can be true; returns true
@@ -36,7 +37,7 @@ private:
 	*
 	* Automaticly return false if currentStamina is 0
 	*/
-	bool canBeUsed(Character User);
+	bool canBeUsed(Character* User);
 
 	/*
 	* Uses the skill
@@ -48,7 +49,12 @@ private:
 	* Skill can be used if currentStamina <  staminaUse
 	*	however, accuracy lost linearly
 	*/
-	bool useSkill(Character User, Character Target);
+	bool useSkill(Character* User, Character* Target);
+	
+	/*
+	 * Returns the skills name
+	 */
+	std::string getName();
 
 //Constructor
 public:

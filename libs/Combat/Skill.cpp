@@ -1,5 +1,5 @@
 /*
-* Class: Skill
+* 1Class: Skill
 * Description: Implements the skills class
 *		Skills are combat moves
 *		most cases general attacks (support only this for now)
@@ -18,7 +18,6 @@
 #include <time.h>
 
 #include "Skill.h"
-#include "../Entity/Character.cpp"
 
 //General use Constructor
 Skill::Skill(std::string name, std::string description, int staminaUse, int damage) {
@@ -34,18 +33,25 @@ Skill::Skill(std::string name, std::string description, int staminaUse, int dama
 *
 * returns false automaitcally if stamina is 0
 */
-bool Skill::canBeUsed(Character User) {
-	if (User.getCurrentStat(5) == 0) {
+bool Skill::canBeUsed(Character* User) {
+	if (User -> getCurrentStat(5) == 0) {
 		return false; //if stamina is 0 then false
 	}
 	return true;
 };
 
 /*
+ * Returns Skill name
+ */
+std::string Skill::getName() {
+	return name;	
+};
+
+/*
 * Uses the skill
 * returns true if the skill was used
 */
-bool Skill::useSkill(Character User, Character Target) {
+bool Skill::useSkill(Character* User, Character* Target) {
 	//Check if the skill can be used first
 	if (canBeUsed(User) == false) {
 		return false;
@@ -53,31 +59,34 @@ bool Skill::useSkill(Character User, Character Target) {
 	
 	//Determine Accuracy
 	float accuracy = 100;
-	if (User.getCurrentStat(5) < staminaUse) {
-		accuracy = User.getCurrentStat(5) / staminaUse * 100;
+	if (User->getCurrentStat(5) < staminaUse) {
+		accuracy = User -> getCurrentStat(5) / staminaUse * 100;
 	}
 
 	//Apply stamina cost
-	User.setCurrentStat(5, (User.getCurrentStat(5) - staminaUse));
-	if (User.getCurrentStat(5) < 0) {
-		User.setCurrentStat(5, 0);
+	User->setCurrentStat(5, (User->getCurrentStat(5) - staminaUse));
+	if (User->getCurrentStat(5) < 0) {
+		User->setCurrentStat(5, 0);
 	}	
 
 	//Determine hit
 	srand (time(NULL));
 	if ((rand() % 100) > accuracy) {
 		//Miss
+		std::cout << "Your attack misses!" << std::endl;
 		return false;
 	}
 
 	//Apply Damage to target
 	//If user has a weapon
+	/*
 	if (User.getEquipedItem(5) != NULL) {
 		Target.setCurrentHealth(Target.getCurrentHealth() - (damage + damage * User.getEquipedItem(5)->getDamageModifier()));
 	}
+	*/
 	//User does not have a weapon
-	else {
-		Target.setCurrentHealth(Target.getCurrentHealth() - damage);
-	}
+	Target->setCurrentHealth(Target->getCurrentHealth() - damage);
+	std::cout << "You successfully attack for, " << damage << " damage." << std::endl;
+
 	return true;
 };

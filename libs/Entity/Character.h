@@ -14,10 +14,9 @@
 
 //Include statement
 #include "Entity.h"
-#include "Object.h"
 #include "Equipment.h"
 #include <vector>
-
+#include <string>
 
 class Character : public Entity {
 
@@ -40,10 +39,10 @@ private:
 	int currentAttributes[6];
 	
 	/*
-	*vector for skills
+	* contains pointer to all skills
+	* the character can use
 	*/
-	int skillNumber;
-	vector<int> skills; //empty vector of ints
+	std::vector<std::string> skills;
 
 	/**
  	* Attributes that will be manipulated in methods then assigned
@@ -103,18 +102,18 @@ public:
 	int getAttribute(int attributeNumber);
 	
 	/*
-	*Get method for Skills
-	*value of skillNumber specifies which skill to retern
-	*returns the skills value
-	*/
-	int getSkill(int skillNumber);
+ 	* This method checks if the Chracter has a skill with the name
+ 	* returns true if the character has the skill
+ 	* returns false if the character does not have the skill
+  	*/
+	bool checkHasSkill(std::string skillName);
 	
 	/*
 	*set method for skills
-	*the skill will change to the value specified by amount
-	*returns the new value of the skill
+	*the skill will be appended to the skills vector
+	*returns true if the skill was added
 	*/
-	int setSkill(int skillNumber, int amount);
+	void addSkill(std::string skillInput);
 	
 	/*
 	* Get method for stats

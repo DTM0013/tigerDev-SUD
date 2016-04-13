@@ -42,7 +42,8 @@ private:
 public:
 	float getDamageModifier();
 	int getBaseStaminaUse();
-	float getCritModifier;
+	float getCritModifier();
+	int getSlot();
 //Constructor
 public:
 	/*

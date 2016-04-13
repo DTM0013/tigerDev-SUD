@@ -10,8 +10,6 @@
 
 //include statements
 #include "Object.h"
-#include "Entity.h"
-#include "Entity.cpp"
 
 /*
 *Returns true if an object is able to be picked up

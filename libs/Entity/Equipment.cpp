@@ -9,7 +9,6 @@
 */
 
 //Include statements
-#include "Object.h"
 #include "Equipment.h"
 
 /*
@@ -18,8 +17,8 @@
 */
 
 Equipment::Equipment(int slot, float damageModifier, float critModifier) {
-	this->getSlot(slot);
-	this->getDamageModifier(damageModifier);
+	this->slot = slot;
+	this->damageModifier = damageModifier;
 	this->critModifier = critModifier;
 	
 }

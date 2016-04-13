@@ -1,0 +1,4 @@
+Name: <skeleton>
+Description: <3spooky5me>
+Attributes: <5><6><8><2><8><3>
+Skills: <swipe><crush>

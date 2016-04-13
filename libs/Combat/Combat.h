@@ -17,6 +17,8 @@
 //Include statements
 #include "../Entity/Character.h"
 #include "../Entity/Player.h"
+#include "../Database/SkillBuilder.h"
+#include "Skill.h"
 
 class Combat {
 
@@ -26,7 +28,9 @@ private:
 	Character* target;
 	int previousPosX;
 	int previousPosY;
+	SkillBuilder* skills;
 	bool turn; //true if player's turn (may not need this)
+
 //Functions
 public:
 	/*
@@ -48,7 +52,7 @@ public:
 	/*
 	* General use constructor
 	*/
-	Combat(Player* player, Character* target, int previousPosX, int previousPosY);
+	Combat(Player* player, Character* target, int previousPosX, int previousPosY, SkillBuilder* skills);
 
 };
 
